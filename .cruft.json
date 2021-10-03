@@ -1,0 +1,23 @@
+{
+  "template": "https://github.com/bbugyi200/cc-python",
+  "commit": "768180e0174351e6486ae97ed8f1c40a7b43a5c9",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "author": "Bryan M Bugyi",
+      "email": "bryanbugyi34@gmail.com",
+      "github_username": "bbugyi200",
+      "git_org_name": "bbugyi200",
+      "git_repo_name": "hush",
+      "package_name": "hush",
+      "pypi_package_name": "python-hush",
+      "read_the_docs_domain": "hush",
+      "package_description": "A Python library that helps manage secrets using tools specified by plugin hooks.",
+      "package_type": "library",
+      "_template": "https://github.com/bbugyi200/cc-python",
+      "package_path": "hush",
+      "package_module": "hush"
+    }
+  },
+  "directory": null
+}
