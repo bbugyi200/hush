@@ -2,9 +2,9 @@
 
 caption hush's modules
 
-object api
-api : get_secret()
-api : set_secret()
+object hush
+hush : get_secret()
+hush : set_secret()
 
 object cli
 cli : main()
@@ -28,8 +28,8 @@ plugin.builtin : pass_set
 plugin.builtin : envvar_get
 plugin.builtin : envvar_set
 
-api --> plugin
-cli --> api
+cli --> hush
+hush --> plugin
 plugin --> plugin.host
 plugin.host --> plugin.specs
 plugin.host --> plugin.builtin
