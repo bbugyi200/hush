@@ -17,7 +17,10 @@ from setuptools import find_namespace_packages, setup
 ###############################################################################
 # Configuration variables that are likely to need changing at some point.
 ###############################################################################
-DESCRIPTION = "A Python library that helps manage secrets using tools specified by plugin hooks."
+DESCRIPTION = (
+    "A Python library that helps manage secrets using tools specified by"
+    " plugin hooks."
+)
 SUPPORTED_PYTHON_VERSIONS = [
     (3, 7),
     (3, 8),
