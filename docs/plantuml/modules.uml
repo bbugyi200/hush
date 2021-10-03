@@ -1,0 +1,37 @@
+@startuml
+
+caption hush's modules
+
+object api
+api : get_secret()
+api : set_secret()
+
+object cli
+cli : main()
+cli : parse_cli_args()
+cli : run_get()
+cli : run_set()
+
+object plugin
+
+object plugin.host
+plugin : manager()
+plugin.host : manager()
+
+object plugin.specs
+plugin.specs : get_secret()
+plugin.specs : set_secret()
+
+object plugin.builtin
+plugin.builtin : pass_get
+plugin.builtin : pass_set
+plugin.builtin : envvar_get
+plugin.builtin : envvar_set
+
+api --> plugin
+cli --> api
+plugin --> plugin.host
+plugin.host --> plugin.specs
+plugin.host --> plugin.builtin
+
+@enduml
