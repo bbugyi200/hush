@@ -4,3 +4,11 @@
 #
 #    "make update-requirements"
 #
+importlib-metadata==4.8.1
+    # via pluggy
+pluggy==1.0.0
+    # via -r requirements.in
+typing-extensions==3.10.0.2
+    # via importlib-metadata
+zipp==3.6.0
+    # via importlib-metadata
