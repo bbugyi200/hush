@@ -1,4 +1,8 @@
-"""A Python library that helps manage secrets using tools specified by plugin hooks."""
+"""A Python library that helps manage secrets.
+
+Uses the secret management tools (e.g. pass) specified by (internal and
+external) plugin hooks.
+"""
 
 import logging as _logging
 
