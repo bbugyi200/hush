@@ -23,10 +23,10 @@ plugin.specs : get_secret()
 plugin.specs : set_secret()
 
 object plugin.builtin
-plugin.builtin : pass_get
-plugin.builtin : pass_set
-plugin.builtin : envvar_get
-plugin.builtin : envvar_set
+plugin.builtin : pass_get()
+plugin.builtin : pass_set()
+plugin.builtin : envvar_get()
+plugin.builtin : envvar_set()
 
 cli --> hush
 hush --> plugin
