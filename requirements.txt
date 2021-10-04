@@ -4,11 +4,19 @@
 #
 #    "make update-requirements"
 #
+bugyi.lib==0.6.0
+    # via -r requirements.in
 importlib-metadata==4.8.1
     # via pluggy
 pluggy==1.0.0
     # via -r requirements.in
+python-dateutil==2.8.2
+    # via bugyi.lib
+six==1.16.0
+    # via python-dateutil
 typing-extensions==3.10.0.2
-    # via importlib-metadata
+    # via
+    #   bugyi.lib
+    #   importlib-metadata
 zipp==3.6.0
     # via importlib-metadata

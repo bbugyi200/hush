@@ -8,23 +8,18 @@ endheader
 
 object hush {
     //get_secret()//
-    //set_secret()//
 }
 
 object hush.hush {
     get_secret()
-    set_secret()
 }
 
 object hush.cli {
     main()
-    parse_cli_args()
-    run_get()
-    run_set()
 }
 
 object hush.plugin {
-    hookimpl()
+    //hookimpl()//
     //manager()//
 }
 
@@ -34,20 +29,19 @@ object hush.plugin.host {
 
 object hush.plugin.specs {
     get_secret()
-    set_secret()
 }
 
 object hush.plugin.builtin {
-    pass_get()
-    pass_set()
     envvar_get()
-    envvar_set()
+    hookimpl()
+    pass_get()
 }
 
 hush --> hush.hush
 hush.cli --> hush.hush
 hush.hush --> hush.plugin
 hush.plugin --> hush.plugin.host
+hush.plugin --> hush.plugin.builtin
 hush.plugin.host --> hush.plugin.specs
 hush.plugin.host --> hush.plugin.builtin
 

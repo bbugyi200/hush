@@ -22,6 +22,8 @@ binaryornot==0.4.4
     # via cookiecutter
 black==21.9b0
     # via -r requirements-dev.in
+bugyi.lib==0.6.0
+    # via -r requirements.in
 bump2version==1.0.1
     # via -r requirements-dev.in
 certifi==2021.5.30
@@ -157,7 +159,9 @@ pytest-cov==3.0.0
 pytest-mock==3.6.1
     # via -r requirements-dev.in
 python-dateutil==2.8.2
-    # via arrow
+    # via
+    #   arrow
+    #   bugyi.lib
 python-slugify==5.0.2
     # via cookiecutter
 pytz==2021.3
@@ -241,6 +245,7 @@ typing-extensions==3.10.0.2
     #   arrow
     #   astroid
     #   black
+    #   bugyi.lib
     #   gitpython
     #   importlib-metadata
     #   mypy
