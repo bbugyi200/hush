@@ -1,5 +1,7 @@
 """The plugin server is controlled from this module.
 
-See the 'host' bullet in the following pluggy doc section for more information:
-    https://pluggy.readthedocs.io/en/stable/#how-does-it-work
+Namely, this module is responsible for instantiating a pluggy.PluginManager[1]
+object.
+
+[1]: https://pluggy.readthedocs.io/en/stable/api_reference.html#pluggy.PluginManager
 """
