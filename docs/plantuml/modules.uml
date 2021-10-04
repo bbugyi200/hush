@@ -2,36 +2,48 @@
 
 caption The //**hush**// package's modules.
 
-object hush
-hush : get_secret()
-hush : set_secret()
+object hush {
+    //get_secret()//
+    //set_secret()//
+}
 
-object cli
-cli : main()
-cli : parse_cli_args()
-cli : run_get()
-cli : run_set()
+object hush.hush {
+    get_secret()
+    set_secret()
+}
 
-object plugin
+object hush.cli {
+    main()
+    parse_cli_args()
+    run_get()
+    run_set()
+}
 
-object plugin.host
-plugin : manager()
-plugin.host : manager()
+object hush.plugin {
+    //manager()//
+}
 
-object plugin.specs
-plugin.specs : get_secret()
-plugin.specs : set_secret()
+object hush.plugin.host {
+    manager()
+}
 
-object plugin.builtin
-plugin.builtin : pass_get()
-plugin.builtin : pass_set()
-plugin.builtin : envvar_get()
-plugin.builtin : envvar_set()
+object hush.plugin.specs {
+    get_secret()
+    set_secret()
+}
 
-cli --> hush
-hush --> plugin
-plugin --> plugin.host
-plugin.host --> plugin.specs
-plugin.host --> plugin.builtin
+object hush.plugin.builtin {
+    pass_get()
+    pass_set()
+    envvar_get()
+    envvar_set()
+}
+
+hush --> hush.hush
+hush.cli --> hush.hush
+hush.hush --> hush.plugin
+hush.plugin --> hush.plugin.host
+hush.plugin.host --> hush.plugin.specs
+hush.plugin.host --> hush.plugin.builtin
 
 @enduml
