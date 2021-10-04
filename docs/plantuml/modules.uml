@@ -1,6 +1,6 @@
 @startuml
 
-caption hush's modules
+caption The //**hush**// package's modules.
 
 object hush
 hush : get_secret()
