@@ -2,10 +2,6 @@
 
 caption The //**hush**// package's module design document.
 
-header
-//WARNING: Last updated on 2021-10-04.//
-endheader
-
 object hush {
     //get_secret()//
     //set_secret()//
