@@ -1,4 +1,5 @@
 """The plugins that are builtin to hush.
 
-All plugins in this module will be enabled by default.
+All plugin hook implementations found in this module will be enabled by
+default.
 """
