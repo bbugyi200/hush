@@ -24,6 +24,7 @@ object hush.cli {
 }
 
 object hush.plugin {
+    hookimpl()
     //manager()//
 }
 
