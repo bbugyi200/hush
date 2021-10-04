@@ -1,6 +1,10 @@
 @startuml
 
-caption The //**hush**// package's module design document.
+caption The //**hush**// package's modules.
+
+header
+WARNING: This document is //only// guaranteed to be up-to-date as of 2021-10-04.
+endheader
 
 object hush {
     //get_secret()//
