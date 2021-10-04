@@ -1,6 +1,6 @@
 @startuml
 
-caption The //**hush**// package's modules.
+caption The //**hush**// package's module design document.
 
 header
 //WARNING: Last updated on 2021-10-04.//
