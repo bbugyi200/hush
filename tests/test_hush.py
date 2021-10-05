@@ -2,7 +2,7 @@
 
 from hush import get_secret
 
-from .conftest import FOO, KUNG_FOO
+from .conftest import FOO
 
 
 def test_get_secret__PASS(mock_pass: None) -> None:
@@ -13,7 +13,7 @@ def test_get_secret__PASS(mock_pass: None) -> None:
     assert secret == FOO
 
     secret = get_secret("foo", namespace=["path", "to"])
-    assert secret == KUNG_FOO
+    assert secret == FOO
 
 
 def test_get_secret__ENVVAR(mock_envvars: None) -> None:

@@ -168,13 +168,10 @@ pytest==6.2.5
     #   -r requirements-dev.in
     #   pytest-cov
     #   pytest-mock
-    #   pytest-subprocess
     #   syrupy
 pytest-cov==3.0.0
     # via -r requirements-dev.in
 pytest-mock==3.6.1
-    # via -r requirements-dev.in
-pytest-subprocess==1.1.2
     # via -r requirements-dev.in
 python-clap==0.2.2
     # via -r requirements.in

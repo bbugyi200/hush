@@ -7,7 +7,7 @@ from pytest import mark
 
 from hush.cli import main
 
-from .conftest import FOO, KUNG_FOO
+from .conftest import FOO
 
 
 params = mark.parametrize
@@ -15,7 +15,7 @@ cli_params = params(
     "args,expected",
     [
         (["foo"], FOO),
-        (["foo", "-n", "path,to"], KUNG_FOO),
+        (["foo", "-n", "path,to"], FOO),
     ],
 )
 

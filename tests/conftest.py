@@ -11,12 +11,10 @@ from _pytest.nodes import Item
 import logutils
 from pytest import fixture
 from pytest_mock.plugin import MockerFixture
-from pytest_subprocess import FakeProcess
 from typeguard import typechecked
 
 
 FOO = "FOOOO"
-KUNG_FOO = "Kung FOOOOOO!!!"
 
 
 def pytest_runtest_call(item: Item) -> None:
@@ -39,24 +37,31 @@ def init_logging() -> None:
 
 
 @fixture
-def mock_pass(mocker: MockerFixture, fake_process: FakeProcess) -> None:
+def mock_pass(mocker: MockerFixture) -> None:
     """Mocks needed to test 'pass' secrets.
 
     Mocks subprocess.Popen() so 'pass' appears to exist and contain desired
     secrets.
     """
-    fake_process.allow_unregistered(True)
-    mocker.patch("bugyi.lib.shell.command_exists", return_value=True)
-    fake_process.register_subprocess(["pass", "show", "foo"], stdout=FOO)
-    fake_process.register_subprocess(
-        ["pass", "show", "path/to/foo"], stdout=KUNG_FOO
+    mocker.patch(
+        "bugyi.lib.shell.command_exists", return_value=True
     )
+
+    proc_mock = mocker.MagicMock()
+    proc_mock.returncode = 0
+
+    popen_mock = mocker.MagicMock(return_value=proc_mock)
+
+    mock_communicate = mocker.MagicMock(return_value=(FOO.encode(), b""))
+    proc_mock.communicate = mock_communicate
+
+    mocker.patch("bugyi.lib.shell.sp.Popen", popen_mock)
 
 
 @fixture
 def mock_envvars() -> Iterator[None]:
     """Mocks needed to test environment variable secrets."""
     with patch.dict(
-        os.environ, {"HUSH_FOO": FOO, "HUSH_PATH_TO_FOO": KUNG_FOO}
+        os.environ, {"HUSH_FOO": FOO, "HUSH_PATH_TO_FOO": FOO}
     ):
         yield
