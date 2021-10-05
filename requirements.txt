@@ -4,7 +4,7 @@
 #
 #    "make update-requirements"
 #
-bugyi.lib==0.6.0
+bugyi.lib==0.6.1
     # via -r requirements.in
 importlib-metadata==4.8.1
     # via pluggy

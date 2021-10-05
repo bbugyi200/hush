@@ -1,7 +1,9 @@
 ### Tests
 pytest
+pytest-clarity
 pytest-cov
 pytest-mock
+pytest-subprocess
 syrupy
 tox
 tox-pyenv

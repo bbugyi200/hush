@@ -11,7 +11,7 @@ import logging
 from typing import Iterable, Optional
 
 from bugyi.lib import shell
-from bugyi.lib.errors import Err
+from bugyi.lib.result import Err
 import pluggy
 
 
@@ -20,7 +20,7 @@ hookimpl = pluggy.HookimplMarker("hush")
 
 
 @hookimpl(specname="get_secret")  # type: ignore[misc]
-def pass_get(*, key: str, namespace: Iterable[str] = tuple()) -> Optional[str]:
+def pass_get(key: str, namespace: Iterable[str]) -> Optional[str]:
     if not shell.command_exists("pass"):
         return None
 
@@ -30,7 +30,9 @@ def pass_get(*, key: str, namespace: Iterable[str] = tuple()) -> Optional[str]:
     out_err_result = shell.safe_popen(["pass", "show", key])
     if isinstance(out_err_result, Err):
         error = out_err_result.err()
-        logger.debug("Unable to retrieve secret using 'pass' | %r", error)
+        logger.debug(
+            "Unable to retrieve secret using 'pass' | %s", error.report()
+        )
         return None
 
     secret, _ = out_err_result.ok()

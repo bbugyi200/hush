@@ -13,10 +13,8 @@ import pluggy
 hookspec = pluggy.HookspecMarker("hush")
 
 
-@hookspec  # type: ignore[misc]
-def get_secret(
-    *, key: str, namespace: Iterable[str] = tuple()
-) -> Optional[str]:
+@hookspec(firstresult=True)  # type: ignore[misc]
+def get_secret(key: str, namespace: Iterable[str]) -> Optional[str]:
     """This hook is used to retrieve secrets.
 
     Args:

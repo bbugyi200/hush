@@ -13,7 +13,7 @@ from pluggy import PluginManager
 from . import builtin, specs
 
 
-@cache  # type: ignore[arg-type]
+@cache()
 def manager() -> PluginManager:
     """Returns the PluginManager responsible for configuring plugins."""
     pm = PluginManager("hush")
