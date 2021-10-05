@@ -23,7 +23,9 @@ binaryornot==0.4.4
 black==21.9b0
     # via -r requirements-dev.in
 bugyi.lib==0.6.1
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   pylogutils
 bump2version==1.0.1
     # via -r requirements-dev.in
 certifi==2021.5.30
@@ -39,6 +41,8 @@ click==7.1.2
     #   cruft
     #   pip-tools
     #   typer
+colorama==0.4.4
+    # via pylogutils
 colored==1.4.2
     # via syrupy
 cookiecutter==1.7.3
@@ -138,6 +142,8 @@ py==1.10.0
     #   tox
 pycodestyle==2.7.0
     # via flake8
+pydantic==1.8.2
+    # via pylogutils
 pydocstyle[toml]==6.1.1
     # via -r requirements-dev.in
 pyflakes==2.3.1
@@ -146,6 +152,8 @@ pygments==2.10.0
     # via sphinx
 pylint==2.11.1
     # via -r requirements-dev.in
+pylogutils==0.1.4
+    # via -r requirements.in
 pyparsing==2.4.7
     # via packaging
 pytest==6.2.5
@@ -210,6 +218,8 @@ sphinxcontrib-qthelp==1.0.3
     # via sphinx
 sphinxcontrib-serializinghtml==1.1.5
     # via sphinx
+structlog==21.1.0
+    # via pylogutils
 syrupy==1.4.5
     # via -r requirements-dev.in
 text-unidecode==1.3
@@ -252,7 +262,9 @@ typing-extensions==3.10.0.2
     #   gitpython
     #   importlib-metadata
     #   mypy
+    #   pydantic
     #   pylint
+    #   structlog
 urllib3==1.26.7
     # via requests
 virtualenv==20.8.1

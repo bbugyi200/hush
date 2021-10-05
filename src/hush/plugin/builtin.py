@@ -8,6 +8,7 @@ default.
 
 
 import logging
+import os
 from typing import Iterable, Optional
 
 from bugyi.lib import shell
@@ -17,6 +18,19 @@ import pluggy
 
 logger = logging.getLogger(__name__)
 hookimpl = pluggy.HookimplMarker("hush")
+
+
+@hookimpl(tryfirst=True, specname="get_secret")  # type: ignore[misc]
+def envvar_get(key: str, namespace: Iterable[str]) -> Optional[str]:
+    """Implements get_secret() hook by checking for environment variables."""
+    key = key.upper()
+
+    if namespace:
+        key = f"{'_'.join(part.upper() for part in namespace)}_{key}"
+
+    key = f"HUSH_{key}"
+
+    return os.getenv(key)
 
 
 @hookimpl(specname="get_secret")  # type: ignore[misc]
@@ -37,14 +51,9 @@ def pass_get(key: str, namespace: Iterable[str]) -> Optional[str]:
     if isinstance(out_err_result, Err):
         error = out_err_result.err()
         logger.debug(
-            "Unable to retrieve secret using 'pass' | %s", error.report()
+            "Unable to retrieve secret using 'pass': %s", error.report()
         )
         return None
 
     secret, _ = out_err_result.ok()
     return secret
-
-
-@hookimpl(specname="get_secret")  # type: ignore[misc]
-def envvar_get(key: str, namespace: Iterable[str]) -> Optional[str]:
-    """Implements get_secret() hook by checking for environment variables."""

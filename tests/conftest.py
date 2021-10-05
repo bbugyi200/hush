@@ -4,6 +4,8 @@ https://docs.pytest.org/en/6.2.x/fixture.html#conftest-py-sharing-fixtures-acros
 """
 
 from _pytest.nodes import Item
+import logutils
+from pytest import fixture
 from typeguard import typechecked
 
 
@@ -18,3 +20,9 @@ def pytest_runtest_call(item: Item) -> None:
     test_func = getattr(item, "obj", None)
     if test_func is not None:
         setattr(item, "obj", typechecked(test_func))
+
+
+@fixture(autouse=True, scope="session")
+def init_logging() -> None:
+    """Initialize logging."""
+    logutils.init_logging()
