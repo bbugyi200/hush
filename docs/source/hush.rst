@@ -20,4 +20,5 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
+   hush.cli
    hush.hush
