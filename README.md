@@ -77,6 +77,7 @@ you through the process.
   interested in contributing to this project.
 * [Create a New Issue][13]: Create a new GitHub issue for this project.
 * [Documentation][1]: This project's full documentation.
+* [Usage][14]: How do you use Hush?
 
 
 [1]: https://hush.readthedocs.io/en/latest
@@ -92,3 +93,4 @@ you through the process.
 [11]: https://github.com/pypa/pipx
 [12]: https://github.com/cruft/cruft
 [13]: https://github.com/bbugyi200/hush/issues/new/choose
+[14]: https://hush.readthedocs.io/en/latest/usage.html
