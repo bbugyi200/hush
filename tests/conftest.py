@@ -11,7 +11,7 @@ from _pytest.nodes import Item
 import logutils
 from pytest import fixture
 from pytest_mock.plugin import MockerFixture
-from pytest_subprocess.core import FakeProcess
+from pytest_subprocess import FakeProcess
 from typeguard import typechecked
 
 
