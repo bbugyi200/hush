@@ -1,6 +1,6 @@
 """Contains the hush package's main entry point."""
 
-from typing import List, Sequence
+from typing import List, Optional, Sequence
 
 import clap
 from logutils import Logger
@@ -15,6 +15,7 @@ class Arguments(clap.Arguments):
 
     key: str
     namespace: List[str]
+    user: Optional[str]
 
 
 def parse_cli_args(argv: Sequence[str]) -> Arguments:
@@ -37,6 +38,15 @@ def parse_cli_args(argv: Sequence[str]) -> Arguments:
             " comma-separated list of namespace parts."
         ),
     )
+    parser.add_argument(
+        "-u",
+        "--user",
+        default=None,
+        help=(
+            "Run secret retrieving commands as this user instead of the"
+            " current user."
+        ),
+    )
 
     args = parser.parse_args(argv[1:])
     kwargs = vars(args)
@@ -48,12 +58,13 @@ def run(args: Arguments) -> int:
     """This function acts as this tool's main entry point."""
     log = Logger(__name__).bind_fargs(locals())
 
-    secret = get_secret(args.key, namespace=args.namespace)
+    secret = get_secret(args.key, namespace=args.namespace, user=args.user)
     if secret is None:
         log.error(
             "Hush was unable to retrieve this secret.",
             key=args.key,
             namespace=args.namespace,
+            user=args.user,
         )
         return 1
 
