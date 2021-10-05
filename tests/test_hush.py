@@ -1,13 +1,16 @@
 """Tests for the hush package."""
 
+from pytest_mock.plugin import MockerFixture
 from pytest_subprocess.core import FakeProcess
 
 from hush import get_secret
 
 
-def test_get_secret__PASS(fake_process: FakeProcess) -> None:
+def test_get_secret__PASS(
+    mocker: MockerFixture, fake_process: FakeProcess
+) -> None:
     """Test the get_secret() function with 'pass'."""
-    fake_process.allow_unregistered(True)
+    mocker.patch("bugyi.lib.shell.command_exists", return_value=True)
 
     expected_secret = "FOOOO"
     fake_process.register_subprocess(

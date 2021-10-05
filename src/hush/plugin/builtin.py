@@ -43,3 +43,8 @@ def pass_get(key: str, namespace: Iterable[str]) -> Optional[str]:
 
     secret, _ = out_err_result.ok()
     return secret
+
+
+@hookimpl(specname="get_secret")  # type: ignore[misc]
+def envvar_get(key: str, namespace: Iterable[str]) -> Optional[str]:
+    """Implements get_secret() hook by checking for environment variables."""
