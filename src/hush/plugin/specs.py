@@ -14,7 +14,7 @@ hookspec = pluggy.HookspecMarker("hush")
 
 
 @hookspec(firstresult=True)  # type: ignore[misc]
-def get_secret(key: str, namespace: Iterable[str]) -> Optional[str]:
+def get_secret(key: str, namespace: Iterable[str], user: str) -> Optional[str]:
     """This hook is used to retrieve secrets.
 
     Args:
@@ -23,4 +23,6 @@ def get_secret(key: str, namespace: Iterable[str]) -> Optional[str]:
           "foobar"]`). How this argument is used is specific to the tool being
           used to store and retrieve secrets (i.e. is specific to each hook
           implementation).
+        user: If this argument is provided, secret retrieving commands are run
+          as ``user`` when possible.
     """
