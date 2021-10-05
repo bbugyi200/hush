@@ -1,4 +1,4 @@
-"""Tests the 'hush' executable."""
+"""End-to-end tests using the 'hush' executable."""
 
 from typing import Sequence
 
