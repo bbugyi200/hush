@@ -1,6 +1,6 @@
 """Tests for the hush package."""
 
-from hush import get_secret
+from hush import Hush, get_secret
 
 from .conftest import FOO
 
@@ -12,7 +12,12 @@ def test_get_secret__PASS(mock_pass: None) -> None:
     secret = get_secret("foo")
     assert secret == FOO
 
-    secret = get_secret("foo", namespace=["path", "to"])
+    namespace = ["path", "to"]
+    secret = get_secret("foo", namespace=namespace)
+    assert secret == FOO
+
+    hush = Hush(namespace=namespace)
+    secret = hush.get_secret("foo")
     assert secret == FOO
 
 

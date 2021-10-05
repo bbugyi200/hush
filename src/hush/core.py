@@ -13,7 +13,7 @@ from . import plugin
 
 
 def get_secret(
-    key: str, namespace: Iterable[str] = tuple(), user: str = None
+    key: str, namespace: Iterable[str] = tuple(), *, user: str = None
 ) -> Optional[str]:
     """Given a ``key``, retrieve a secret.
 
@@ -43,3 +43,34 @@ def get_secret(
         key=key, namespace=namespace, user=user
     )
     return secret
+
+
+class Hush:
+    """Hush class to constrain context of get_secret() function.
+
+    Can be used as an alternative to calling this module's global
+    ``get_secret()`` function directly.
+    """
+
+    def __init__(
+        self, namespace: Iterable[str] = tuple(), *, user: str = None
+    ):
+        self._namespace = list(namespace)
+        self._user = user
+
+    def get_secret(
+        self, key: str, namespace: Iterable[str] = tuple(), *, user: str = None
+    ) -> Optional[str]:
+        """Given a ``key``, retrive a secret.
+
+        Note:
+            * The ``namespace`` argument, if provided, will be used to extend
+              the namespace specified when initializing this class.
+            * The ``user`` argument, if provided, will override the user
+              specified when initializing this class.
+
+        Refer to ``help(hush.get_secret)`` for more information.
+        """
+        namespace = self._namespace + list(namespace)
+        user = user or self._user
+        return get_secret(key, namespace=namespace, user=user)

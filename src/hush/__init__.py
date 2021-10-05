@@ -6,7 +6,7 @@ external) plugin hooks.
 
 import logging as _logging
 
-from .core import get_secret
+from .core import Hush, get_secret
 
 
 __author__ = "Bryan M Bugyi"

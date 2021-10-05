@@ -7,10 +7,12 @@ WARNING: This document is //only// guaranteed to be up-to-date as of 2021-10-05.
 endheader
 
 object hush {
+    //Hush()//
     //get_secret()//
 }
 
 object hush.core {
+    Hush()
     get_secret()
 }
 
