@@ -21,4 +21,4 @@ Submodules
    :maxdepth: 4
 
    hush.cli
-   hush.hush
+   hush.core
