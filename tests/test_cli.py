@@ -12,11 +12,10 @@ from .conftest import FOO, KUNG_FOO
 
 params = mark.parametrize
 cli_params = params(
-    "args,expected,exit_code",
+    "args,expected",
     [
-        (["foo"], FOO, 0),
-        (["foo", "-n", "path,to"], KUNG_FOO, 0),
-        (["bar"], "", 1),
+        (["foo"], FOO),
+        (["foo", "-n", "path,to"], KUNG_FOO),
     ],
 )
 
@@ -27,13 +26,12 @@ def test_pass(
     mock_pass: None,
     args: Sequence[str],
     expected: str,
-    exit_code: int,
 ) -> None:
     """Tests that 'hush' can retrieve secrets from 'pass'."""
     del mock_pass
 
     args = list(args)
-    assert main([""] + args) == exit_code
+    main([""] + args)
 
     captured = capsys.readouterr()
     actual = captured.out.strip()
@@ -46,13 +44,12 @@ def test_envvars(
     mock_envvars: None,
     args: Sequence[str],
     expected: str,
-    exit_code: int,
 ) -> None:
     """Tests that 'hush' can retrieve secrets from environment variables."""
     del mock_envvars
 
     args = list(args)
-    assert main([""] + args) == exit_code
+    main([""] + args)
 
     captured = capsys.readouterr()
     actual = captured.out.strip()
