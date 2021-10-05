@@ -21,6 +21,12 @@ hookimpl = pluggy.HookimplMarker("hush")
 
 @hookimpl(specname="get_secret")  # type: ignore[misc]
 def pass_get(key: str, namespace: Iterable[str]) -> Optional[str]:
+    """Implements get_secret() hook using 'pass'.
+
+    See the tool's official documentation[1] for more information.
+
+    [1]: https://www.passwordstore.org/
+    """
     if not shell.command_exists("pass"):
         return None
 
