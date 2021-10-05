@@ -3,14 +3,14 @@
 caption The //**hush**// package's modules.
 
 header
-WARNING: This document is //only// guaranteed to be up-to-date as of 2021-10-04.
+WARNING: This document is //only// guaranteed to be up-to-date as of 2021-10-05.
 endheader
 
 object hush {
     //get_secret()//
 }
 
-object hush.hush {
+object hush.core {
     get_secret()
 }
 
@@ -37,9 +37,9 @@ object hush.plugin.builtin {
     pass_get()
 }
 
-hush --> hush.hush
+hush --> hush.core
 hush.cli --> hush
-hush.hush --> hush.plugin
+hush.core --> hush.plugin
 hush.plugin --> hush.plugin.host
 hush.plugin --> hush.plugin.builtin
 hush.plugin.host --> hush.plugin.specs
