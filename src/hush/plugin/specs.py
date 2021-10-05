@@ -14,7 +14,9 @@ hookspec = pluggy.HookspecMarker("hush")
 
 
 @hookspec(firstresult=True)  # type: ignore[misc]
-def get_secret(key: str, namespace: Iterable[str], user: str) -> Optional[str]:
+def get_secret(
+    key: str, namespace: Iterable[str], user: Optional[str]
+) -> Optional[str]:
     """This hook is used to retrieve secrets.
 
     Args:

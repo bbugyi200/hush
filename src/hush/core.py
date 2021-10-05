@@ -5,7 +5,6 @@ module to add it to.
 """
 
 
-from getpass import getuser
 import os
 from typing import Iterable, Optional
 
@@ -28,7 +27,7 @@ def get_secret(
           implementation).
         user: If this argument is provided, secret retrieving commands are run
           as ``user`` when possible. This option defaults to the value of the
-          HUSH_USER envvar or the current user if HUSH_USER is not defined.
+          HUSH_USER envvar, if defined.
 
     Returns:
         The secret value returned by the first plugin to successfully retrieve
@@ -38,7 +37,7 @@ def get_secret(
         desired secret.
     """
     pm = plugin.manager()
-    user = user or os.getenv("HUSH_USER", getuser())
+    user = user or os.getenv("HUSH_USER")
     secret: Optional[str] = pm.hook.get_secret(
         key=key, namespace=namespace, user=user
     )

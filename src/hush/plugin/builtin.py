@@ -7,7 +7,6 @@ default.
 """
 
 
-from getpass import getuser
 import logging
 import os
 from typing import Iterable, Optional
@@ -35,7 +34,9 @@ def envvar_get(key: str, namespace: Iterable[str]) -> Optional[str]:
 
 
 @hookimpl(specname="get_secret")  # type: ignore[misc]
-def pass_get(key: str, namespace: Iterable[str], user: str) -> Optional[str]:
+def pass_get(
+    key: str, namespace: Iterable[str], user: Optional[str]
+) -> Optional[str]:
     """Implements get_secret() hook using 'pass'.
 
     See the tool's official documentation[1] for more information.
@@ -52,7 +53,7 @@ def pass_get(key: str, namespace: Iterable[str], user: str) -> Optional[str]:
         key = f"{'/'.join(namespace)}/{key}"
 
     cmd_list = []
-    if user != getuser():
+    if user is not None:
         cmd_list.extend(["sudo", "-u", user])
 
     cmd_list.extend(["pass", "show", key])
