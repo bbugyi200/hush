@@ -10,9 +10,7 @@ from typing import Iterable, Optional
 from . import plugin
 
 
-def get_secret(
-    key: str, *, namespace: Iterable[str] = tuple()
-) -> Optional[str]:
+def get_secret(key: str, namespace: Iterable[str] = tuple()) -> Optional[str]:
     """Given a ``key``, retrieve a secret.
 
     Args:

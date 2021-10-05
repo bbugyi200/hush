@@ -26,6 +26,7 @@ bugyi.lib==0.6.1
     # via
     #   -r requirements.in
     #   pylogutils
+    #   python-clap
 bump2version==1.0.1
     # via -r requirements-dev.in
 certifi==2021.5.30
@@ -79,6 +80,7 @@ importlib-metadata==4.8.1
     #   pep517
     #   pluggy
     #   pytest
+    #   python-clap
     #   tox
     #   virtualenv
 iniconfig==1.1.1
@@ -87,7 +89,7 @@ isort==5.9.3
     # via
     #   -r requirements-dev.in
     #   pylint
-jinja2==3.0.1
+jinja2==3.0.2
     # via
     #   cookiecutter
     #   jinja2-time
@@ -143,7 +145,10 @@ py==1.10.0
 pycodestyle==2.7.0
     # via flake8
 pydantic==1.8.2
-    # via pylogutils
+    # via
+    #   -r requirements.in
+    #   pylogutils
+    #   python-clap
 pydocstyle[toml]==6.1.1
     # via -r requirements-dev.in
 pyflakes==2.3.1
@@ -153,7 +158,9 @@ pygments==2.10.0
 pylint==2.11.1
     # via -r requirements-dev.in
 pylogutils==0.1.4
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   python-clap
 pyparsing==2.4.7
     # via packaging
 pytest==6.2.5
@@ -169,6 +176,8 @@ pytest-mock==3.6.1
     # via -r requirements-dev.in
 pytest-subprocess==1.1.2
     # via -r requirements-dev.in
+python-clap==0.2.2
+    # via -r requirements.in
 python-dateutil==2.8.2
     # via
     #   arrow

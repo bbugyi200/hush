@@ -38,7 +38,7 @@ object hush.plugin.builtin {
 }
 
 hush --> hush.hush
-hush.cli --> hush.hush
+hush.cli --> hush
 hush.hush --> hush.plugin
 hush.plugin --> hush.plugin.host
 hush.plugin --> hush.plugin.builtin

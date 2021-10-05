@@ -1,3 +1,5 @@
 bugyi.lib ~= 0.6.1
 pluggy ~= 1.0
+pydantic
 pylogutils ~= 0.1.4
+python-clap ~= 0.2.2
