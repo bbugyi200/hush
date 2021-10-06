@@ -78,7 +78,7 @@ you through the process.
 * [Create a New Issue][13]: Create a new GitHub issue for this project.
 * [Documentation][1]: This project's full documentation.
 * [Plugins][15]: How do I write my own plugins for Hush?
-* [Usage][14]: How do you use Hush?
+* [Usage][14]: How do I use Hush?
 
 
 [1]: https://hush.readthedocs.io/en/latest
