@@ -8,10 +8,10 @@ Keep in mind the following notes while reading the rest of the documentation:
 * This package provides both a library and an executable, named `hush`, that
   can be used to test this package's functionality.
 * Hush has multiple builtin plugins which are enabled by default (i.e. we will
-  attempt to use them when a user requests secret retrieval). In the examples
-  in this documentation, we will make use of a builtin plugin that reads
-  secrets from environment variables. Note that the names of these environment
-  variables must always begin with `HUSH_`.
+  attempt to use them, by default, when a user requests secret retrieval).
+* In the examples in this documentation, we will make use of a builtin plugin
+  that reads secrets from environment variables. Note that the names of these
+  environment variables must always begin with `HUSH_`.
 
 
 ## Using the Library
