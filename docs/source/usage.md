@@ -16,9 +16,9 @@ Keep in mind the following notes while reading the rest of the documentation:
 
 ## Using the Library
 
-The `hush` library provides two public methods to access the its functionality:
-the `hush.get_secret()` function and the `hush.Hush()` class. We demonstrate
-how each can be used in the examples below.
+The `hush` library provides two public methods to access its functionality: the
+`hush.get_secret()` function and the `hush.Hush()` class. We demonstrate how
+each can be used in the examples below.
 
 ### Examples
 
@@ -70,6 +70,6 @@ Use `hush` to retrieve those secrets:
 $ hush foobar
 Kung Fooooo!
 
-$ hush -namespace=db,dev foobar
+$ hush --namespace=db,dev foobar
 Database in Development!
 ```

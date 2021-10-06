@@ -12,8 +12,8 @@ A Python library that helps manage secrets using tools specified by plugin hooks
     API Reference <modules>
     Changelog <changelog>
     Development Guide <contributing>
-    GitHub README <readme>
     Plugins <plugins.md>
+    README <readme>
     Usage <usage.md>
 
 
