@@ -16,11 +16,7 @@ allows users to start storing secrets in plain-text files under the
 #### hush-tmp-secrets/hush\_tmp\_secrets.py
 
 ```python
-"""This module contains the hush-tmp-secrets Hush plugin's implementation.
-
-This plugin allows users to start storing secrets in plain-text files under the
-/tmp/secrets directory.
-"""
+"""This module contains the hush-tmp-secrets Hush plugin's implementation."""
 
 from pathlib import Path
 from typing import Optional
