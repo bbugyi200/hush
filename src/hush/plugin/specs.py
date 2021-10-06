@@ -7,10 +7,7 @@
 
 from typing import Iterable, Optional
 
-import pluggy
-
-
-hookspec = pluggy.HookspecMarker("hush")
+from .host import hookspec
 
 
 @hookspec(firstresult=True)  # type: ignore[misc]

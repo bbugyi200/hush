@@ -1,44 +1,22 @@
-"""Internal (i.e. builtin to hush) plugin hook implementations live here.
+"""Hooks for the 'pass' tool[1].
 
-All plugin hook implementations[1] found in this module will be enabled by
-default.
-
-[1]: https://pluggy.readthedocs.io/en/stable/#implementations
+[1]: https://www.passwordstore.org
 """
 
 import logging
-import os
 from typing import Iterable, Optional
 
 from bugyi.lib import shell
 from bugyi.lib.result import Err
-import pluggy
+
+from ..host import hookimpl
 
 
 logger = logging.getLogger(__name__)
-hookimpl = pluggy.HookimplMarker("hush")
-
-
-@hookimpl(tryfirst=True, specname="get_secret")  # type: ignore[misc]
-def envvar_get(key: str, namespace: Iterable[str]) -> Optional[str]:
-    """Implements get_secret() hook by checking for environment variables."""
-    key = key.upper()
-
-    if namespace:
-        prefix = "_".join(part.replace(".", "_").upper() for part in namespace)
-        key = f"{prefix}_{key}"
-
-    key = f"HUSH_{key}"
-
-    result = os.getenv(key)
-    if result is None:
-        logger.debug("No environment variable named %s is defined.", key)
-
-    return result
 
 
 @hookimpl(specname="get_secret")  # type: ignore[misc]
-def pass_get(
+def get_secret(
     key: str, namespace: Iterable[str], user: Optional[str]
 ) -> Optional[str]:
     """Implements get_secret() hook using 'pass'.

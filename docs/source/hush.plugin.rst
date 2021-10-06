@@ -6,12 +6,19 @@ hush.plugin package
    :undoc-members:
    :show-inheritance:
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   hush.plugin.builtin
+
 Submodules
 ----------
 
 .. toctree::
    :maxdepth: 4
 
-   hush.plugin.builtin
    hush.plugin.host
    hush.plugin.specs

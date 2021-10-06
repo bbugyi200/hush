@@ -8,14 +8,18 @@ object.
 
 from functools import lru_cache as cache
 
-from pluggy import PluginManager
+from pluggy import HookimplMarker, HookspecMarker, PluginManager
 
-from . import builtin, specs
+
+hookimpl = HookimplMarker("hush")
+hookspec = HookspecMarker("hush")
 
 
 @cache()
 def manager() -> PluginManager:
     """Returns the PluginManager responsible for configuring plugins."""
+    from . import builtin, specs
+
     pm = PluginManager("hush")
     pm.add_hookspecs(specs)
     pm.load_setuptools_entrypoints("hush")

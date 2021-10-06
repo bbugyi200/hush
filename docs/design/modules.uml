@@ -3,7 +3,7 @@
 caption The //**hush**// package's modules.
 
 header
-WARNING: This document is //only// guaranteed to be up-to-date as of 2021-10-05.
+WARNING: This document is //only// guaranteed to be up-to-date as of 2021-10-06.
 endheader
 
 object hush {
@@ -26,6 +26,8 @@ object hush.plugin {
 }
 
 object hush.plugin.host {
+    hookimpl()
+    hookspec()
     manager()
 }
 
@@ -34,17 +36,25 @@ object hush.plugin.specs {
 }
 
 object hush.plugin.builtin {
-    envvar_get()
-    hookimpl()
-    pass_get()
+    envvars
+    pass_store
+}
+
+object hush.plugin.builtin.envvars {
+    get_secret()
+}
+
+object hush.plugin.builtin.pass_store {
+    get_secret()
 }
 
 hush --> hush.core
 hush.cli --> hush
 hush.core --> hush.plugin
 hush.plugin --> hush.plugin.host
-hush.plugin --> hush.plugin.builtin
-hush.plugin.host --> hush.plugin.specs
-hush.plugin.host --> hush.plugin.builtin
+hush.plugin.specs --> hush.plugin.host
+hush.plugin.builtin --> hush.plugin.host
+hush.plugin.builtin --> hush.plugin.builtin.envvars
+hush.plugin.builtin --> hush.plugin.builtin.pass_store
 
 @enduml
