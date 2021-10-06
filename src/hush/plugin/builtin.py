@@ -6,7 +6,6 @@ default.
 [1]: https://pluggy.readthedocs.io/en/stable/#implementations
 """
 
-
 import logging
 import os
 from typing import Iterable, Optional
@@ -26,11 +25,16 @@ def envvar_get(key: str, namespace: Iterable[str]) -> Optional[str]:
     key = key.upper()
 
     if namespace:
-        key = f"{'_'.join(part.upper() for part in namespace)}_{key}"
+        prefix = "_".join(part.replace(".", "_").upper() for part in namespace)
+        key = f"{prefix}_{key}"
 
     key = f"HUSH_{key}"
 
-    return os.getenv(key)
+    result = os.getenv(key)
+    if result is None:
+        logger.debug("No environment variable named %s is defined.", key)
+
+    return result
 
 
 @hookimpl(specname="get_secret")  # type: ignore[misc]
