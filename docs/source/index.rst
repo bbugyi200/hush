@@ -10,10 +10,10 @@ A Python library that helps manage secrets using tools specified by plugin hooks
    :caption: Table of Contents
 
     API Reference <modules>
-    CHANGELOG <changelog>
-    CONTRIBUTING <contributing>
+    Changelog <changelog>
+    Development Guide <contributing>
+    GitHub README <readme>
     Plugins <plugins.md>
-    README <readme>
     Usage <usage.md>
 
 
