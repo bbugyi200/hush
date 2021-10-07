@@ -1,4 +1,6 @@
-"""Hooks for the 'pass' tool[1].
+"""Hooks for the 'pass' tool.
+
+See the tool's official documentation[1] for more information.
 
 [1]: https://www.passwordstore.org
 """
@@ -19,12 +21,7 @@ logger = logging.getLogger(__name__)
 def get_secret(
     key: str, namespace: Iterable[str], user: Optional[str]
 ) -> Optional[str]:
-    """Implements get_secret() hook using 'pass'.
-
-    See the tool's official documentation[1] for more information.
-
-    [1]: https://www.passwordstore.org/
-    """
+    """Implements get_secret() hook using 'pass'."""
     if not shell.command_exists("pass"):
         logger.debug(
             "The 'pass' command does not appear to exist on this machine."
