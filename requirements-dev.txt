@@ -8,7 +8,7 @@ alabaster==0.7.12
     # via sphinx
 arrow==1.2.0
     # via jinja2-time
-astroid==2.8.0
+astroid==2.8.2
     # via pylint
 attrs==21.2.0
     # via
@@ -48,7 +48,7 @@ colored==1.4.2
     # via syrupy
 cookiecutter==1.7.3
     # via cruft
-coverage[toml]==6.0
+coverage[toml]==6.0.1
     # via pytest-cov
 cruft[pyproject]==2.9.0
     # via -r requirements-dev.in
