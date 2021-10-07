@@ -36,8 +36,6 @@ object hush.plugin.specs {
 }
 
 object hush.plugin.builtin {
-    envvars
-    pass_store
 }
 
 object hush.plugin.builtin.envvars {
