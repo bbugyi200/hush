@@ -55,5 +55,7 @@ hush.plugin.builtin.envvars --> hush.plugin.host
 hush.plugin.builtin.pass_store --> hush.plugin.host
 hush.plugin.builtin --> hush.plugin.builtin.envvars
 hush.plugin.builtin --> hush.plugin.builtin.pass_store
+hush.plugin.host ..> hush.plugin.builtin
+hush.plugin.host ..> hush.plugin.specs
 
 @enduml
