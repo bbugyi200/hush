@@ -1,8 +1,8 @@
 # How to write your own plugin for Hush?
 
 Hush uses [pluggy][1] to manage its plugin system. As such, the instructions
-for creating a new external plugin are mostly the same as they are for any
-other application with a plugin-architecture that uses pluggy (e.g.
+for creating a new external plugin for Hush are mostly the same as they are for
+any other application with a plugin-architecture that uses pluggy (e.g.
 [pytest][2]).
 
 ## Examples
