@@ -18,8 +18,8 @@ hookspec = HookspecMarker("hush")
 @cache()
 def manager() -> PluginManager:
     """Returns the PluginManager responsible for configuring plugins."""
-    # We use nested imports since this module is a low-level dependency for
-    # other plugin-related code.
+    # We use nested imports here to prevent circular imports since this module
+    # is a low-level dependency for other plugin-related code.
     from . import builtin, specs
 
     pm = PluginManager("hush")
