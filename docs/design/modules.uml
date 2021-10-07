@@ -6,6 +6,12 @@ header
 WARNING: This document is //only// guaranteed to be up-to-date as of 2021-10-07.
 endheader
 
+legend center
+    <color:red>__Solid Arrow__</color>: (A --> B) Module A imports module B globally.
+    <color:red>__Dotted Arrow__</color>: (A ..> B) Module A has nested imports of module B.
+    <color:red>__Italic Attribute__</color>: This public attribute was imported from another module.
+endlegend
+
 object hush {
     //Hush()//
     //get_secret()//
@@ -51,8 +57,8 @@ hush.cli --> hush
 hush.core --> hush.plugin
 hush.plugin --> hush.plugin.host
 hush.plugin.specs --> hush.plugin.host
-hush.plugin.builtin.envvars --> hush.plugin.host
-hush.plugin.builtin.pass_store --> hush.plugin.host
+hush.plugin.builtin.envvars --> hush.plugin
+hush.plugin.builtin.pass_store --> hush.plugin
 hush.plugin.builtin --> hush.plugin.builtin.envvars
 hush.plugin.builtin --> hush.plugin.builtin.pass_store
 hush.plugin.host ..> hush.plugin.builtin

@@ -9,7 +9,7 @@ from typing import Iterable, Optional
 from bugyi.lib import shell
 from bugyi.lib.result import Err
 
-from ..host import hookimpl
+from .. import hookimpl
 
 
 logger = logging.getLogger(__name__)
