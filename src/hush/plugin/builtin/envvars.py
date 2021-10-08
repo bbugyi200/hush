@@ -19,8 +19,6 @@ def get_secret(key: str, namespace: Iterable[str]) -> Optional[str]:
         prefix = "_".join(part.replace(".", "_").upper() for part in namespace)
         key = f"{prefix}_{key}"
 
-    key = f"HUSH_{key}"
-
     result = os.getenv(key)
     if result is None:
         logger.debug("No environment variable named %s is defined.", key)

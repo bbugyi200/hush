@@ -59,5 +59,5 @@ def mock_pass(mocker: MockerFixture) -> None:
 @fixture
 def mock_envvars() -> Iterator[None]:
     """Mocks needed to test environment variable secrets."""
-    with patch.dict(os.environ, {"HUSH_FOO": FOO, "HUSH_PATH_TO_FOO": FOO}):
+    with patch.dict(os.environ, {"FOO": FOO, "PATH_TO_FOO": FOO}):
         yield
