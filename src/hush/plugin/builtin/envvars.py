@@ -4,13 +4,13 @@ import logging
 import os
 from typing import Iterable, Optional
 
-from ..hooks import hookimpl
+from .. import hookimpl
 
 
 logger = logging.getLogger(__name__)
 
 
-@hookimpl(tryfirst=True, specname="get_secret")  # type: ignore[misc]
+@hookimpl(tryfirst=True)  # type: ignore[misc]
 def get_secret(key: str, namespace: Iterable[str]) -> Optional[str]:
     """Implements get_secret() hook by checking for environment variables."""
     key = key.upper()

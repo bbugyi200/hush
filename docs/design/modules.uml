@@ -52,7 +52,6 @@ object "hush.plugin.hooks" as h.p.hooks {
 
 object "hush.plugin.specs" as h.p.specs {
     get_secret()
-    get_tag_value()
 }
 
 object "hush.plugin.builtin" as h.p.b <<package>> {
@@ -77,10 +76,8 @@ h.core --> h.p
 h.p --> h.p.host
 h.p --> h.p.hooks
 h.p.specs --> h.p.hooks
-h.p.b.envvars --> h.p.hooks
-h.p.b.pass_store --> h.p.hooks
-h.p.b --> h.p.b.envvars
-h.p.b --> h.p.b.pass_store
+h.p.b.envvars --> h.p
+h.p.b.pass_store --> h.p
 h.p.b --> h.p.b.core
 h.p.host --> h.p.b
 h.p.host --> h.p.specs

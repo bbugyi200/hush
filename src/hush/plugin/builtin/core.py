@@ -28,9 +28,7 @@ def get_plugin_modules() -> List[ModuleType]:
             logger.debug("Skipping this module: %r", mod_name)
             continue
 
-        mod = importlib.import_module(
-            "." + mod_name, package=__package__
-        )
+        mod = importlib.import_module("." + mod_name, package=__package__)
         logger.debug("Found plugin module for %r: %r", mod_name, mod)
         result.append(mod)
 

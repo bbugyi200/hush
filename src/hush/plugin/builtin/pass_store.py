@@ -11,13 +11,13 @@ from typing import Iterable, Optional
 from bugyi.lib import shell
 from bugyi.lib.result import Err
 
-from ..hooks import hookimpl
+from .. import hookimpl
 
 
 logger = logging.getLogger(__name__)
 
 
-@hookimpl(specname="get_secret")  # type: ignore[misc]
+@hookimpl  # type: ignore[misc]
 def get_secret(
     key: str, namespace: Iterable[str], user: Optional[str]
 ) -> Optional[str]:
