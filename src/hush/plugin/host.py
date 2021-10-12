@@ -10,16 +10,17 @@ from functools import lru_cache as cache
 
 from pluggy import PluginManager
 
+from . import builtin, specs
+
 
 @cache()
 def manager() -> PluginManager:
     """Returns the PluginManager responsible for configuring plugins."""
-    # We use nested imports here to prevent circular imports since this module
-    # is a low-level dependency for other plugin-related code.
-    from . import builtin, specs
-
     pm = PluginManager("hush")
     pm.add_hookspecs(specs)
     pm.load_setuptools_entrypoints("hush")
-    pm.register(builtin)
+
+    for mod in builtin.get_plugin_modules():
+        pm.register(mod)
+
     return pm

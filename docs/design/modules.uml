@@ -19,7 +19,7 @@ skinparam object {
     BorderColor Black
     ArrowColor Black
 
-    BackgroundColor<<package>> #ffd700
+    BackgroundColor<<package>> #f0f4aa
 }
 
 object "hush" as h <<package>> {

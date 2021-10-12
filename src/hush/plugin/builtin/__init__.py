@@ -6,7 +6,4 @@ default.
 [1]: https://pluggy.readthedocs.io/en/stable/#implementations
 """
 
-# These hooks must be imported into this package's global namespace so this
-# package can be registered as a plugin via `PluginManager.register(builtins)`.
-from .envvars import get_secret as _envvars_get_secret
-from .pass_store import get_secret as _pass_store_get_secret
+from .core import get_plugin_modules
