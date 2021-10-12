@@ -11,7 +11,7 @@ from typing import Iterable, Optional
 from bugyi.lib import shell
 from bugyi.lib.result import Err
 
-from .. import hookimpl
+from ..hooks import hookimpl
 
 
 logger = logging.getLogger(__name__)

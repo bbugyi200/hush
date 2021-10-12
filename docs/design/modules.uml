@@ -1,67 +1,88 @@
 @startuml
 
+hide stereotype
+
 caption The //**hush**// package's modules.
 
 header
-WARNING: This document is //only// guaranteed to be up-to-date as of 2021-10-07.
+WARNING: This document is //only// guaranteed to be up-to-date as of 2021-10-12.
 endheader
 
 legend center
-    <color:red>__Solid Arrow__</color>: (A --> B) Module A imports module B globally.
-    <color:red>__Dotted Arrow__</color>: (A ..> B) Module A has nested imports of module B.
-    <color:red>__Italic Attribute__</color>: This public attribute was imported from another module.
+    **__Italic Attribute__**: This public attribute was imported from somewhere else.
+    **__White Box__**: This object box represents a module.
+    **__Yellow Box__**: This object box represents a package.
 endlegend
 
-object hush {
+skinparam object {
+    BackgroundColor WhiteSmoke
+    BorderColor Black
+    ArrowColor Black
+
+    BackgroundColor<<package>> #ffd700
+}
+
+object "hush" as h <<package>> {
     //Hush()//
     //get_secret()//
 }
 
-object hush.core {
+object "hush.core" as h.core {
     Hush()
     get_secret()
 }
 
-object hush.cli {
+object "hush.cli" as h.cli {
     main()
 }
 
-object hush.plugin {
+object "hush.plugin" as h.p <<package>> {
     //hookimpl()//
     //manager()//
 }
 
-object hush.plugin.host {
-    hookimpl()
-    hookspec()
+object "hush.plugin.host" as h.p.host {
     manager()
 }
 
-object hush.plugin.specs {
+object "hush.plugin.hooks" as h.p.hooks {
+    hookimpl()
+    hookspec()
+}
+
+object "hush.plugin.specs" as h.p.specs {
+    get_secret()
+    get_tag_value()
+}
+
+object "hush.plugin.builtin" as h.p.b <<package>> {
+    //get_plugin_modules()//
+}
+
+object "hush.plugin.builtin.core" as h.p.b.core {
+    get_plugin_modules()
+}
+
+object "hush.plugin.builtin.envvars" as h.p.b.envvars {
     get_secret()
 }
 
-object hush.plugin.builtin {
-}
-
-object hush.plugin.builtin.envvars {
+object "hush.plugin.builtin.pass_store" as h.p.b.pass_store {
     get_secret()
 }
 
-object hush.plugin.builtin.pass_store {
-    get_secret()
-}
-
-hush --> hush.core
-hush.cli --> hush
-hush.core --> hush.plugin
-hush.plugin --> hush.plugin.host
-hush.plugin.specs --> hush.plugin.host
-hush.plugin.builtin.envvars --> hush.plugin
-hush.plugin.builtin.pass_store --> hush.plugin
-hush.plugin.builtin --> hush.plugin.builtin.envvars
-hush.plugin.builtin --> hush.plugin.builtin.pass_store
-hush.plugin.host ..> hush.plugin.builtin
-hush.plugin.host ..> hush.plugin.specs
+h --> h.core
+h.cli --> h
+h.core --> h.p
+h.p --> h.p.host
+h.p --> h.p.hooks
+h.p.specs --> h.p.hooks
+h.p.b.envvars --> h.p.hooks
+h.p.b.pass_store --> h.p.hooks
+h.p.b --> h.p.b.envvars
+h.p.b --> h.p.b.pass_store
+h.p.b --> h.p.b.core
+h.p.host --> h.p.b
+h.p.host --> h.p.specs
 
 @enduml

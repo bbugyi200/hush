@@ -7,7 +7,7 @@
 
 from typing import Iterable, Optional
 
-from .host import hookspec
+from .hooks import hookspec
 
 
 @hookspec(firstresult=True)  # type: ignore[misc]

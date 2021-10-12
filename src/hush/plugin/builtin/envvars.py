@@ -4,7 +4,7 @@ import logging
 import os
 from typing import Iterable, Optional
 
-from .. import hookimpl
+from ..hooks import hookimpl
 
 
 logger = logging.getLogger(__name__)

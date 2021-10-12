@@ -8,11 +8,7 @@ object.
 
 from functools import lru_cache as cache
 
-from pluggy import HookimplMarker, HookspecMarker, PluginManager
-
-
-hookimpl = HookimplMarker("hush")
-hookspec = HookspecMarker("hush")
+from pluggy import PluginManager
 
 
 @cache()
