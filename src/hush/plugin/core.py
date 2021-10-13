@@ -1,9 +1,7 @@
-"""The plugin server is controlled from this module.
+"""The hush.plugin.builtin package's catch-all module.
 
-Namely, this module is responsible for instantiating a pluggy.PluginManager[1]
-object.
-
-[1]: https://pluggy.readthedocs.io/en/stable/api_reference.html#pluggy.PluginManager
+You should only add code to this module when you are unable to find ANY other
+module to add it to.
 """
 
 from functools import lru_cache as cache
@@ -15,7 +13,10 @@ from . import builtin, specs
 
 @cache()
 def manager() -> PluginManager:
-    """Returns the PluginManager responsible for configuring plugins."""
+    """Returns the PluginManager[1] responsible for configuring plugins.
+
+    [1]: https://pluggy.readthedocs.io/en/stable/api_reference.html#pluggy.PluginManager
+    """
     pm = PluginManager("hush")
     pm.add_hookspecs(specs)
     pm.load_setuptools_entrypoints("hush")
