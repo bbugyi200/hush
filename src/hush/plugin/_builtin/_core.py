@@ -18,13 +18,13 @@ def get_plugin_modules() -> List[ModuleType]:
     """Returns a list of all the modules in this directory.
 
     Note:
-        This module and any modules whose names begin with an underscore will
-        not be included in the returned result.
+        This module and any other module whose name starts with an underscore
+        will not be included in the returned result.
     """
     result = []
     for mod_path in Path(__file__).resolve().parent.glob("*.py"):
         mod_name = mod_path.stem
-        if mod_name == "core" or mod_name.startswith("_"):
+        if mod_name.startswith("_"):
             logger.debug("Skipping this module: %r", mod_name)
             continue
 

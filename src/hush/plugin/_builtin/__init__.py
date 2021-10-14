@@ -6,4 +6,4 @@ default.
 [1]: https://pluggy.readthedocs.io/en/stable/#implementations
 """
 
-from .core import get_plugin_modules
+from ._core import get_plugin_modules

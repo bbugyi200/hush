@@ -6,7 +6,7 @@ hide stereotype
 caption The //**hush**// package's modules.
 
 header
-    WARNING: This document is //only// guaranteed to be up-to-date as of 2021-10-13.
+    WARNING: This document is //only// guaranteed to be up-to-date as of 2021-10-14.
 endheader
 
 legend center
@@ -29,12 +29,12 @@ object "hush" as h <<package>> {
     //get_secret()//
 }
 
-object "hush.core" as h.core {
+object "hush._core" as h.core {
     Hush()
     get_secret()
 }
 
-object "hush.cli" as h.cli {
+object "hush._cli" as h.cli {
     main()
 }
 
@@ -43,32 +43,32 @@ object "hush.plugin" as h.p <<package>> {
     //manager()//
 }
 
-object "hush.plugin.core" as h.p.core {
+object "hush.plugin._core" as h.p.core {
     manager()
 }
 
-object "hush.plugin.hooks" as h.p.hooks {
+object "hush.plugin._hooks" as h.p.hooks {
     hookimpl()
     hookspec()
 }
 
-object "hush.plugin.specs" as h.p.specs {
+object "hush.plugin._specs" as h.p.specs {
     get_secret()
 }
 
-object "hush.plugin.builtin" as h.p.b <<package>> {
+object "hush.plugin._builtin" as h.p.b <<package>> {
     //get_plugin_modules()//
 }
 
-object "hush.plugin.builtin.core" as h.p.b.core {
+object "hush.plugin._builtin._core" as h.p.b.core {
     get_plugin_modules()
 }
 
-object "hush.plugin.builtin.envvars" as h.p.b.envvars {
+object "hush.plugin._builtin.envvars" as h.p.b.envvars {
     get_secret()
 }
 
-object "hush.plugin.builtin.pass_store" as h.p.b.pass_store {
+object "hush.plugin._builtin.pass_store" as h.p.b.pass_store {
     get_secret()
 }
 
