@@ -13,12 +13,3 @@ Subpackages
    :maxdepth: 4
 
    hush.plugin
-
-Submodules
-----------
-
-.. toctree::
-   :maxdepth: 4
-
-   hush.cli
-   hush.core
