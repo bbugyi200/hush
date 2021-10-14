@@ -32,7 +32,7 @@ python-dateutil==2.8.2
     # via bugyi.lib
 six==1.16.0
     # via python-dateutil
-structlog==21.1.0
+structlog==21.2.0
     # via pylogutils
 typing-extensions==3.10.0.2
     # via
