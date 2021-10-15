@@ -3,11 +3,9 @@
 /' This line hides "stereotypes" (e.g. <<package>>) from our diagram. '/
 hide stereotype
 
-caption The //**hush**// package's modules.
+title The //**hush**// package's modules.
 
-header
-    WARNING: This document is //only// guaranteed to be up-to-date as of 2021-10-14.
-endheader
+footer WARNING: This document is //only// guaranteed to be up-to-date as of 2021-10-15.
 
 legend center
     **__Dotted Arrow__**: (A ..> B) Module A has nested imports of module B.
