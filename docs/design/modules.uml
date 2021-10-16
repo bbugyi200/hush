@@ -11,8 +11,8 @@ legend center
     **__Dotted Arrow__**: (A ..> B) Module A has nested imports of module B.
     **__Italic Attribute__**: This public attribute was imported from somewhere else.
     **__Solid Arrow__**: (A --> B) Module/package A imports module/package B globally.
-    **__White Box__**: This object box represents a module.
-    **__Yellow Box__**: This object box represents a package.
+    **__White Box__**: This object box represents a Python module.
+    **__Yellow Box__**: This object box represents a Python package.
 endlegend
 
 skinparam object {
