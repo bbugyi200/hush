@@ -8,7 +8,7 @@ alabaster==0.7.12
     # via sphinx
 arrow==1.2.0
     # via jinja2-time
-astroid==2.8.2
+astroid==2.8.3
     # via pylint
 attrs==21.2.0
     # via
@@ -277,7 +277,7 @@ virtualenv==20.8.1
     # via tox
 wheel==0.37.0
     # via pip-tools
-wrapt==1.12.1
+wrapt==1.13.2
     # via astroid
 zipp==3.6.0
     # via
