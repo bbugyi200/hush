@@ -5,7 +5,7 @@ from typing import Sequence
 from _pytest.capture import CaptureFixture
 from pytest import mark
 
-from hush._cli import main
+from hush.cli import main
 
 from .conftest import FOO
 

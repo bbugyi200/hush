@@ -33,7 +33,7 @@ object "hush._core" as h.core {
     get_secret()
 }
 
-object "hush._cli" as h.cli {
+object "hush.cli" as h.cli {
     main()
 }
 

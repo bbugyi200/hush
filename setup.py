@@ -96,7 +96,7 @@ setup(
     description=DESCRIPTION,
     entry_points={
         "console_scripts": [
-            "hush = hush._cli:main",
+            "hush = hush.cli:main",
         ]
     },
     include_package_data=True,
