@@ -7,3 +7,6 @@ default.
 """
 
 from ._core import get_plugin_modules
+
+
+__all__ = ["get_plugin_modules"]

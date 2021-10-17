@@ -9,3 +9,6 @@ See pluggy's documentation[1] for more information.
 
 from ._core import manager
 from ._hooks import hookimpl
+
+
+__all__ = ["hookimpl", "manager"]
