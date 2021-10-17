@@ -5,7 +5,7 @@ hide stereotype
 
 title The //**hush**// package's modules.
 
-footer WARNING: This document is //only// guaranteed to be up-to-date as of 2021-10-15.
+footer WARNING: This document is //only// guaranteed to be up-to-date as of 2021-10-17.
 
 legend center
     **__Dotted Arrow__**: (A ..> B) Module A has nested imports of module B.
