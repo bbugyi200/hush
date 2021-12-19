@@ -39,6 +39,43 @@ popen = subprocess.Popen(["hush", "--help"], stdout=subprocess.PIPE)
 stdout, _ = popen.communicate()
 print("```", stdout.decode().strip(), "```", sep="\n")
 ]]]]] -->
+```
+usage: hush [-h] [-L [FILE[:LEVEL][@FORMAT]]] [-v] [-n NAMESPACE] [-u USER]
+            key
+
+A Python library that helps manage secrets.
+
+Uses the secret management tools (e.g. pass) specified by (internal and
+external) plugin hooks.
+
+positional arguments:
+  key                   The key that corresponds with the secret that we wish
+                        to retrieve.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -L [FILE[:LEVEL][@FORMAT]], --log [FILE[:LEVEL][@FORMAT]]
+                        This option can be used to enable a new logging
+                        handler. FILE should be either a path to a logfile or
+                        one of the following special file types: [1] 'stderr'
+                        to log to standard error (enabled by default), [2]
+                        'stdout' to log to standard out, [3] 'null' to disable
+                        all console (e.g. stderr) handlers, or [4] '+[NAME]'
+                        to choose a default logfile path (where NAME is an
+                        optional basename for the logfile). LEVEL can be any
+                        valid log level (i.e. one of ['CRITICAL', 'DEBUG',
+                        'ERROR', 'INFO', 'TRACE', 'WARNING']) and FORMAT can
+                        be any valid log format (i.e. one of ['color', 'json',
+                        'nocolor']). NOTE: This option can be specified
+                        multiple times and has a default argument of '+'.
+  -n NAMESPACE, --namespace NAMESPACE
+                        The namespace the secret is apart of. This argument
+                        should be a comma-separated list of namespace parts.
+  -u USER, --user USER  Run secret retrieving commands as this user instead of
+                        the current user.
+  -v, --verbose         How verbose should the output be? This option can be
+                        specified multiple times (e.g. -v, -vv, -vvv, ...).
+```
 <!-- [[[[[end]]]]] -->
 
 ## Useful Links 🔗
