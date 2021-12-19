@@ -6,7 +6,7 @@ syrupy
 tox
 tox-pyenv
 typeguard
--e file:.#egg=hush>=0.dev
+-e file:.#egg=python-hush>=0.dev
 
 
 ### Lint
