@@ -4,6 +4,8 @@
 #
 #    "make update-requirements"
 #
+-e file:.#egg=python-hush>=0.dev
+    # via -r requirements-dev.in
 alabaster==0.7.12
     # via sphinx
 arrow==1.2.1
@@ -27,6 +29,7 @@ bugyi.lib==0.6.1
     #   -r requirements.in
     #   pylogutils
     #   python-clap
+    #   python-hush
 bump2version==1.0.1
     # via -r requirements-dev.in
 certifi==2021.10.8
@@ -139,6 +142,7 @@ pluggy==1.0.0
     # via
     #   -r requirements.in
     #   pytest
+    #   python-hush
     #   tox
 poyo==0.5.0
     # via cookiecutter
@@ -153,6 +157,7 @@ pydantic==1.8.2
     #   -r requirements.in
     #   pylogutils
     #   python-clap
+    #   python-hush
 pydocstyle[toml]==6.1.1
     # via -r requirements-dev.in
 pyflakes==2.4.0
@@ -165,6 +170,7 @@ pylogutils==0.1.4
     # via
     #   -r requirements.in
     #   python-clap
+    #   python-hush
 pyparsing==3.0.6
     # via packaging
 pytest==6.2.5
@@ -178,7 +184,9 @@ pytest-cov==3.0.0
 pytest-mock==3.6.1
     # via -r requirements-dev.in
 python-clap==0.2.2
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   python-hush
 python-dateutil==2.8.2
     # via
     #   arrow
@@ -205,7 +213,7 @@ snowballstemmer==2.2.0
     # via
     #   pydocstyle
     #   sphinx
-sphinx==4.3.1
+sphinx==4.3.2
     # via
     #   -r requirements-dev.in
     #   sphinx-autodoc-typehints
