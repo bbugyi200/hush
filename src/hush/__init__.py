@@ -8,6 +8,7 @@ import logging as _logging
 
 from ._core import Hush, get_secret
 
+
 __all__ = ["Hush", "get_secret"]
 
 __author__ = "Bryan M Bugyi"
