@@ -32,12 +32,12 @@ you through the process.
 
 ## CLI Usage
 
-<!-- [[[kook
+<!-- [[[kooky.cog
 import subprocess
 
 popen = subprocess.Popen(["hush", "--help"], stdout=subprocess.PIPE)
 stdout, _ = popen.communicate()
-print(stdout.decode().strip())
+print("```", stdout.decode().strip(), "```", sep="\n")
 ]]] -->
 <!-- [[[end]]] -->
 
