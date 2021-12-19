@@ -30,6 +30,17 @@ If you don't have pip installed, this [Python installation guide][10] can guide
 you through the process.
 
 
+## CLI Usage
+
+<!-- [[[kook
+import subprocess
+
+popen = subprocess.Popen(["hush", "--help"], stdout=subprocess.PIPE)
+stdout, _ = popen.communicate()
+print(stdout.decode().strip())
+]]] -->
+<!-- [[[end]]] -->
+
 ## Useful Links 🔗
 
 * [API Reference][3]: A developer's reference of the API exposed by this
