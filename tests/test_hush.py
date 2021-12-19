@@ -1,5 +1,7 @@
 """Tests for the hush package."""
 
+from __future__ import annotations
+
 from hush import Hush, get_secret
 
 from .conftest import FOO
